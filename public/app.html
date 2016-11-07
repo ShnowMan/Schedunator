@@ -15,32 +15,41 @@
         <label for="name"> Employee Name </label>
         <input type="text" name="name" required>
 
-        <table>
-          <tr>
-            <td>Position</td>
-            <td>Checked Out:</td>
-            <td>Learning:</td>
-            <td>Doesn't Do:</td>
-          </tr>
-          <tr>
-            <td><label for="BflyEnt">Butterfly Entrance:</label></td>
-            <td><input type="radio" name="BflyEnt" value="Checked Out"></td>
-            <td><input type="radio" name="BflyEnt" value="Learning"></td>
-            <td><input type="radio" name="BflyEnt" value="Doesn't Do" checked></td>
-          </tr>
-          <tr>
-            <td><label for="BflyExt">Butterfly Exit:</label></td>
-            <td><input type="radio" name="BflyExt" value="Checked Out"></td>
-            <td><input type="radio" name="BflyExt" value="Learning"></td>
-            <td><input type="radio" name="BflyExt" value="Doesn't Do" checked></td>
-          </tr>
-          <tr>
-            <td><label for="TidePool">Tide Pool:</label></td>
-            <td><input type="radio" name="TidePool" value="Checked Out"></td>
-            <td><input type="radio" name="TidePool" value="Learning"></td>
-            <td><input type="radio" name="TidePool" value="Doesn't Do" checked></td>
-          </tr>
-        </table>
+        <div id="bflyent-container">
+              <label for= "bflyEnt"class="label-body">Butterfly Entrance:
+                <input class="position" type="radio" name="BflyEnt" value="checkedOut" required>
+                <span class="label-body">Checked Out:</span>
+
+                <input class="position" type="radio" name="BflyEnt" value="learning">
+                <span class="label-body">Learning</span>
+
+                <input class="position" type="radio" name="BflyEnt" value="doesntDo">
+                <span class="label-body">Doesn't Do</span>
+        </div>
+
+        <div id="bflyext-container">
+              <label class="label-body">Butterfly Exit:
+                <input class="position" type="radio" name="BflyExt" value="checkedOut" required>
+                <span class="label-body">Checked Out:</span>
+
+                <input class="position" type="radio" name="BflyExt" value="learning">
+                <span class="label-body">Learning</span>
+
+                <input class="position" type="radio" name="BflyExt" value="doesntDo">
+                <span class="label-body">Doesn't Do</span>
+        </div>
+
+        <div id="tidepool-container">
+              <label class="label-body">Tide Pool:
+                <input class="position" type="radio" name="tidePool" value="checkedOut" required>
+                <span class="label-body">Checked Out:</span>
+
+                <input class="position" type="radio" name="tidePool" value="learning">
+                <span class="label-body">Learning</span>
+
+                <input class="position" type="radio" name="tidePool" value="doesntDo">
+                <span class="label-body">Doesn't Do</span>
+        </div>
         <input type="submit">
       </form>
 
