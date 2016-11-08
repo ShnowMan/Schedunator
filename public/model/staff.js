@@ -1,4 +1,7 @@
 (function(ctx){
+
+  var database = firebase.database();
+
   const Staff = {};
 
   Staff.allEmployees = [];
@@ -7,11 +10,20 @@
 
   const employee = function(args){
     this.name = args[0];
-    this.ent = args[1];
-    this.ext = args[2];
-    this.tp = args[3];
+    this.ent = args[1].toUpperCase();
+    this.ext = args[2].toUpperCase();
+    this.tp = args[3].toUpperCase();
     Staff.allEmployees.push(this);
   };
+
+  Staff.writeEmployeeData = function(employeeID, args) {
+    firebase.database().ref('staff/' + employeeID).set({
+      name: args[0],
+      ent: args[1],
+      ext: args[2],
+      tp: args[3]
+    });
+  }
 
   Staff.addEmployees = function(event){
     event.preventDefault();
@@ -24,10 +36,21 @@
     ];
 
     Employee = new employee(args);
+    Staff.writeEmployeeData(employeeID, args);
     console.log(Staff.allEmployees);
   };
 
   $('#WarCard').on("submit",Staff.addEmployees)
+
+
+
+
+
+
+
+
+
+
   ctx.Staff = Staff;
 })(window)
 
