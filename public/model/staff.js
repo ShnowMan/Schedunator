@@ -13,6 +13,7 @@
     this.ext = args[2].toUpperCase();
     this.tp = args[3].toUpperCase();
     this.isEighteen = args[4];
+    this.numBreaks = args [5];
     Staff.allEmployees.push(this);
   };
 
@@ -30,7 +31,8 @@
       ent: args[1],
       ext: args[2],
       tp: args[3],
-      isEighteen: args[4]
+      isEighteen: args[4],
+      numBreaks: args[5]
     });
     Staff.getEmployeeData();
   }
@@ -42,10 +44,11 @@
       Staff.e.currentTarget.name.value,
       $('input[name="BflyEnt"]:checked').val(),
       $('input[name="BflyExt"]:checked').val(),
-      $('input[name="tidePool"]:checked').val()
+      $('input[name="tidePool"]:checked').val(),
+      $('input[name="overEighteen"]').is(':checked')
     ];
 
-    args[4] = $('input[name="overEighteen"]').is(':checked');
+    args[5] = (args[4])? 2 : 3;
 
     Employee = new employee(args);
     Staff.numStaff ++;
