@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "schedunator-cec77"
+    "default": "schedunator-cec77",
+    "staging": "schedunator-cec77"
   }
 }
