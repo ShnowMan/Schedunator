@@ -1,8 +1,7 @@
 (function(ctx){
 
-  var database = firebase.database();
-
   const Staff = {};
+  Staff.numStaff = 0;
 
   Staff.allEmployees = [];
 
@@ -23,6 +22,7 @@
       ext: args[2],
       tp: args[3]
     });
+    Staff.numStaff ++;
   }
 
   Staff.addEmployees = function(event){
@@ -36,19 +36,11 @@
     ];
 
     Employee = new employee(args);
-    Staff.writeEmployeeData(employeeID, args);
+    Staff.writeEmployeeData(Staff.numStaff, args);
     console.log(Staff.allEmployees);
   };
 
   $('#WarCard').on("submit",Staff.addEmployees)
-
-
-
-
-
-
-
-
 
 
   ctx.Staff = Staff;
