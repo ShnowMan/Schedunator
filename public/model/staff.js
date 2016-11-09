@@ -22,7 +22,6 @@
       ext: args[2],
       tp: args[3]
     });
-    Staff.numStaff ++;
   }
 
   Staff.addEmployees = function(event){
@@ -36,6 +35,7 @@
     ];
 
     Employee = new employee(args);
+    Staff.numStaff ++;
     Staff.writeEmployeeData(Staff.numStaff, args);
     console.log(Staff.allEmployees);
   };
