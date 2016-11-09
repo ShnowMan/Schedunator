@@ -15,6 +15,14 @@
     Staff.allEmployees.push(this);
   };
 
+  Staff.getEmployeeData = function(){
+    //var userId = firebase.auth().currentUser.uid; Note: This is for authorization
+    return firebase.database().ref('staff/').once('value').then(function(snapshot) {
+      var username = snapshot.val();
+      console.log(snapshot.val());
+    });
+  }
+
   Staff.writeEmployeeData = function(employeeID, args) {
     firebase.database().ref('staff/' + employeeID).set({
       name: args[0],
@@ -22,6 +30,7 @@
       ext: args[2],
       tp: args[3]
     });
+    Staff.getEmployeeData();
   }
 
   Staff.addEmployees = function(event){
@@ -42,6 +51,7 @@
 
   $('#WarCard').on("submit",Staff.addEmployees)
 
+  Staff.getEmployeeData();
 
   ctx.Staff = Staff;
 })(window)
