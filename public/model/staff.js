@@ -34,7 +34,6 @@
       isEighteen: args[4],
       numBreaks: args[5]
     });
-    Staff.getEmployeeData();
   }
 
   Staff.addEmployees = function(event){
@@ -55,9 +54,22 @@
     Staff.writeEmployeeData(Staff.numStaff, args);
   };
 
-  $('#WarCard').on("submit",Staff.addEmployees)
+  Staff.displayTable = function(){
+    Staff.allEmployees = [];
+    const $Table = $('#skills-table');
+    table.empty();
+    Staff.getEmployeeData().forEach((ele) => {
+      Staff.allEmployees.push(ele);
+    })
+    Staff.allEmployees.forEach((ele, i) => {
+      $Table.append(`<tr class = 'employee'> ${ele.name} </tr>`);
+      ele.keys.forEach((key, j) => {
+        //Table.append(`<td class = 'property'> ${key} </td>`); but for properties
+      })
+    })
+  };
 
-  Staff.getEmployeeData();
+  $('#WarCard').on("submit", Staff.addEmployees)
 
   ctx.Staff = Staff;
 })(window)
