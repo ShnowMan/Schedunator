@@ -1,9 +1,10 @@
 (function(ctx){
 
   const Staff = {};
-  Staff.numStaff = 0;
 
   Staff.allEmployees = [];
+
+  Staff.numStaff = Staff.allEmployees.length;
 
   Staff.e = null;
 
@@ -20,7 +21,7 @@
   Staff.getEmployeeData = function(){
     //var userId = firebase.auth().currentUser.uid; Note: This is for authorization
     return firebase.database().ref('staff/').once('value').then(function(snapshot) {
-      var username = snapshot.val();
+      return snapshot.val();
       //console.log(snapshot.val());
     });
   }
@@ -34,7 +35,6 @@
       isEighteen: args[4],
       numBreaks: args[5]
     });
-    Staff.getEmployeeData();
   }
 
   Staff.addEmployees = function(event){
@@ -51,13 +51,23 @@
     args[5] = (args[4])? 2 : 3;
 
     Employee = new employee(args);
-    Staff.numStaff ++;
     Staff.writeEmployeeData(Staff.numStaff, args);
+    Staff.numStaff ++;
   };
 
-  $('#WarCard').on("submit",Staff.addEmployees)
+  Staff.displayTable = function(){
+    const $Table = $('#skills-table');
+    $Table.empty();
+    Staff.allEmployees.forEach((ele) => {
+      $Table.append(`<tr class = 'employee'> <td>${ele.name}</td> </tr>`);
+    })
+  };
 
-  Staff.getEmployeeData();
+  Staff.getEmployeeData().then(function(people){
+    people.forEach((e) => Staff.allEmployees.push(e))
+    Staff.numStaff = Staff.allEmployees.length;
+    $('#WarCard').on("submit", Staff.addEmployees)
+  });
 
   ctx.Staff = Staff;
 })(window)
@@ -65,3 +75,8 @@
 
 // $('input[name="BflyEnt"]:checked').val()
 // Staff.e.currentTarget.name.value
+
+      // console.log(ele);
+// ele.keys.forEach((key, j) => {
+// Table.append(`<td class = 'property'> ${key} </td>`);
+// })
