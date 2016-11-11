@@ -10,9 +10,9 @@
 
   const employee = function(args){
     this.name = args[0];
-    this.ent = args[1].toUpperCase();
-    this.ext = args[2].toUpperCase();
-    this.tp = args[3].toUpperCase();
+    this.ent = args[1];
+    this.ext = args[2];
+    this.tp = args[3];
     this.isEighteen = args[4];
     this.numBreaks = args [5];
     Staff.allEmployees.push(this);
@@ -37,6 +37,32 @@
     });
   }
 
+  Staff.displayTable = function(){
+    const $Table = $('#skills-table');
+
+    console.log(Staff.allEmployees);
+    $('tbody').empty();
+    Staff.allEmployees.forEach((ele, index) => {
+
+      // Adds Row
+      $Table.append(`<tr id='employee-${index}' class='employee'> </tr>`);
+      let $TableChild = $(`#employee-${index}`);
+
+      // Adds Employee
+      $TableChild.append(`<td id='${ele.name}' class='name'>${ele.name}</td>`)
+
+      // Adds Keys
+      for (var i = 0; i < Object.keys(ele).length; i++) {
+        if(i == 3){
+          continue;
+        }
+        else{
+          $TableChild.append(`<td class = 'property'> ${ele[Object.keys(ele)[i]]} </td>`);
+        }
+      }
+    })
+  };
+
   Staff.addEmployees = function(event){
     event.preventDefault();
     Staff.e = event;
@@ -48,26 +74,28 @@
       $('input[name="overEighteen"]').is(':checked')
     ];
 
-    args[5] = (args[4])? 2 : 3;
+    args[5] = (args[4]) ? 2 : 3;
 
     Employee = new employee(args);
     Staff.writeEmployeeData(Staff.numStaff, args);
     Staff.numStaff ++;
-  };
 
-  Staff.displayTable = function(){
-    const $Table = $('#skills-table');
-    $Table.empty();
-    Staff.allEmployees.forEach((ele) => {
-      $Table.append(`<tr class = 'employee'> <td>${ele.name}</td> </tr>`);
-    })
+    Staff.allEmployees = [];
+
+    Staff.getEmployeeData().then(function(people){
+      people.forEach((e) => Staff.allEmployees.push(e))
+      Staff.numStaff = Staff.allEmployees.length;
+      Staff.displayTable();
+    });
   };
 
   Staff.getEmployeeData().then(function(people){
     people.forEach((e) => Staff.allEmployees.push(e))
     Staff.numStaff = Staff.allEmployees.length;
-    $('#WarCard').on("submit", Staff.addEmployees)
+    Staff.displayTable();
   });
+
+  $('#WarCard').on("submit", Staff.addEmployees);
 
   ctx.Staff = Staff;
 })(window)
