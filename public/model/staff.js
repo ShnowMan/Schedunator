@@ -9,12 +9,13 @@
   Staff.e = null;
 
   const employee = function(args){
-    this.name = args[0];
-    this.ent = args[1];
-    this.ext = args[2];
-    this.tp = args[3];
-    this.isEighteen = args[4];
-    this.numBreaks = args [5];
+    this.empID = args[0];
+    this.name = args[1];
+    this.ent = args[2];
+    this.ext = args[3];
+    this.tp = args[4];
+    this.isEighteen = args[5];
+    this.numBreaks = args [6];
     Staff.allEmployees.push(this);
   };
 
@@ -23,17 +24,18 @@
     return firebase.database().ref('staff/').once('value').then(function(snapshot) {
       return snapshot.val();
       //console.log(snapshot.val());
-    });
-  }
+    })
+  };
 
-  Staff.writeEmployeeData = function(employeeID, args) {
-    firebase.database().ref('staff/' + employeeID).set({
-      name: args[0],
-      ent: args[1],
-      ext: args[2],
-      tp: args[3],
-      isEighteen: args[4],
-      numBreaks: args[5]
+  Staff.writeEmployeeData = function(args) {
+    firebase.database().ref('staff/' + args[0]).set({
+      empID: args[0],
+      name: args[1],
+      ent: args[2],
+      ext: args[3],
+      tp: args[4],
+      isEighteen: args[5],
+      numBreaks: args[6]
     });
   }
 
@@ -53,7 +55,7 @@
 
       // Adds Keys
       for (var i = 0; i < Object.keys(ele).length; i++) {
-        if(i == 3){
+        if(i == 4){
           continue;
         }
         else{
@@ -67,6 +69,7 @@
     event.preventDefault();
     Staff.e = event;
     let args = [
+      Staff.numStaff,
       Staff.e.currentTarget.name.value,
       $('input[name="BflyEnt"]:checked').val(),
       $('input[name="BflyExt"]:checked').val(),
@@ -74,10 +77,10 @@
       $('input[name="overEighteen"]').is(':checked')
     ];
 
-    args[5] = (args[4]) ? 2 : 3;
+    args[6] = (args[5]) ? 2 : 3;
 
     Employee = new employee(args);
-    Staff.writeEmployeeData(Staff.numStaff, args);
+    Staff.writeEmployeeData(args);
     Staff.numStaff ++;
 
     Staff.allEmployees = [];
@@ -99,12 +102,3 @@
 
   ctx.Staff = Staff;
 })(window)
-
-
-// $('input[name="BflyEnt"]:checked').val()
-// Staff.e.currentTarget.name.value
-
-      // console.log(ele);
-// ele.keys.forEach((key, j) => {
-// Table.append(`<td class = 'property'> ${key} </td>`);
-// })
