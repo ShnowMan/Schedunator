@@ -7,9 +7,9 @@ This app is all about simplifying day to day scheduling problems.
 #Get more done in less time!
 Tired of spending 300+ hours a week writing out a schedule for 9,000 people? Click a button, and bomb! scheduled!
 
-![alt tag](images/schedule.jpg)
-![alt tag](images/AppFlow1.jpg)
-![alt tag](images/AppFlow2.jpg)
-![alt tag](images/AppFlow3.jpg)
+![alt tag](public/images/schedule.jpg)
+![alt tag](public/images/AppFlow1.jpg)
+![alt tag](public/vimages/AppFlow2.jpg)
+![alt tag](public/images/AppFlow3.jpg)
 
-![alt tag](images/FormWireFrame.jpg)
+![alt tag](public/images/FormWireframe.jpg)
