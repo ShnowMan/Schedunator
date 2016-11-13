@@ -12,3 +12,7 @@
   z-index: 1;
   width: 75%;
 }
+
+#schedule-table{
+  display: none;
+}
