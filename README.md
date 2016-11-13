@@ -12,4 +12,4 @@ Tired of spending 300+ hours a week writing out a schedule for 9,000 people? Cli
 ![alt tag](public/vimages/AppFlow2.jpg)
 ![alt tag](public/images/AppFlow3.jpg)
 
-![alt tag](public/images/FormWireFrame.jpg)
+![alt tag](public/images/FormWireframe.jpg)
