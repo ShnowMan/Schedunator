@@ -82,6 +82,15 @@ form {
   display: block;
 }
 
+#populate-schedule-button{
+  background-color: grey;
+  color: white;
+  width: 20%;
+  margin: 1em;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
 .label-body{
   text-align: center;
   padding-right: 5px;
