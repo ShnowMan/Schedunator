@@ -3,15 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Admin Side</title>
+    <link rel="stylesheet" href="views/base.css" media = "screen">
+    <link rel="stylesheet" href="views/layout.css" media = "screen">
+    <link rel="stylesheet" href="views/modules.css" media = "screen">
+    <link rel="stylesheet" href="views/normalize.css" media = "screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
-    <link rel="stylesheet" href="style/base.css" media="screen" title="no title">
   </head>
 
   <body>
-    <h1>App</h1>
-    <a href="/">Link</a>
+    <section id = "hamburger"><img id = 'hamburgerpicture' src = 'images/Hamburger.png'></section>
+    <section class = "logocontainer"><h1 class = "logo">War Cards</h1></section>
+    <nav id="navbar">
+    <ul>
+      <li><a href = "/">Schedule</a></li>
+      <li><a href = "/app.html">War Cards</a></li>
+      <li><a href = "/#about">About</a></li>
+    </ul>
+  </nav>
     <section>
       <table id = "skills-table">
         <thead>
@@ -29,7 +39,7 @@
     <section>
       <form id="WarCard">
         <label for="name"> Employee Name </label>
-        <input type="text" name="name" required>
+        <input id = "namebox" type="text" name="name" required>
 
         <div id="bflyent-container">
               <label for= "bflyEnt"class="label-body">Butterfly Entrance:
@@ -70,7 +80,7 @@
           <label class = "label-body">Over Eighteen?
             <input class ="position" type="checkbox" name="overEighteen">
         </div>
-        <input type="submit">
+        <input id = "submitbutton" type="submit">
       </form>
 
     </section>

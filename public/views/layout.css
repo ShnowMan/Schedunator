@@ -1,0 +1,14 @@
+#hamburger {
+  position: absolute;
+  z-index:2;
+}
+
+.logocontainer {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  z-index: 1;
+  width: 75%;
+}
