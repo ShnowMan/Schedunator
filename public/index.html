@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Schedunator</title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>Schedunator</title>
+  <link rel="stylesheet" href="views/base.css">
+  <link rel="stylesheet" href="views/layout.css">
+  <link rel="stylesheet" href="views/modules.css">
+  <link rel="stylesheet" href="views/normalize.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+</head>
+<body>
+  <section id = "hamburger"><img id = 'hamburgerpicture' src = 'images/Hamburger.png'></section>
+  <section class = "logocontainer"><img class = "logo" src = "images/logo.png"/></section>
+  <nav id="navbar">
+    <ul>
+      <li><a href = "/">Schedule</a></li>
+      <li><a href = "/app.html">War Cards</a></li>
+      <li><a href = "#about">About</a></li>
+    </ul>
+  </nav>
+  <section id = "schedule">
+    <table id = "schedule-table">
+      <thead>
+        <tr>
+          <td class = "table-time" >Time:</td>
 
-  <body>
-    <h1>Hello Planet</h1>
-  </body>
+          <td class = "table-ent">Butterfly Entrance:</td>
+          <td class = "table-ext">Butterfly Exit:</td>
+          <td class = "table-tp">Tide Pool:</td>
 
+        </tr>
+      </thead>
+    </table>
+    <button id="populate-schedule-button" type="button" name="PopulateSchedule">Today's Schedule</button>
+  </section>
+  <section id = "about">
+    <section class = "logocontainer"><h1 class = "logo">About</h1></section>
+    <ul>
+      <li>
+        <h3>Jeff King</h3>
+        <p>
+          I’m a developer, learning to javascript as best I can. I love public speak, but fear high places and ice skates.
+        </p>
+      </li>
+      <li>
+        <h3>Yamile Colque</h3>
+        <p>I’m a developer, learning to javascript as best I can. I love dark chocolate, but hate candy corn </p>
+      </li>
+      <li>
+        <h3>Will Skelton</h3>
+        <p>
+          I’m a developer, learning to javascript as best I can. I love karate, but hate being here for presentations
+        </p>
+      </li>
+    </ul>
+  </section>
+</body>
+<script src = "fb.js"></script>
+<script src="model/schedule.js">
+
+</script>
 </html>

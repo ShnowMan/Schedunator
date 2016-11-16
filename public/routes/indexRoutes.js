@@ -1,0 +1,3 @@
+page('/', indexController)
+
+page();

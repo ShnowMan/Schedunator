@@ -1,0 +1,22 @@
+@media only screen and (min-width: 640px){
+  #hamburger {
+    display:none;
+  }
+
+  nav {
+    display:block;
+    width: 100%;
+  }
+
+  nav ul {
+
+  }
+
+  nav ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 10em;
+    background-color:white;
+    color: black;
+  }

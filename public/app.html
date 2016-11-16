@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Admin Side</title>
+    <link rel="stylesheet" href="views/base.css" media = "screen">
+    <link rel="stylesheet" href="views/layout.css" media = "screen">
+    <link rel="stylesheet" href="views/modules.css" media = "screen">
+    <link rel="stylesheet" href="views/normalize.css" media = "screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+  </head>
+
+  <body>
+    <section id = "hamburger"><img id = 'hamburgerpicture' src = 'images/Hamburger.png'></section>
+    <section class = "logocontainer"><h1 class = "logo">War Cards</h1></section>
+    <nav id="navbar">
+    <ul>
+      <li><a href = "/">Schedule</a></li>
+      <li><a href = "/app.html">War Cards</a></li>
+      <li><a href = "/#about">About</a></li>
+    </ul>
+  </nav>
+    <section>
+      <table id = "skills-table">
+        <thead>
+          <tr>
+            <td>Name:</td>
+            <td>Employee Number:</td>
+            <td>Butterfly Entrance:</td>
+            <td>Butterfly Exit:</td>
+            <td>Is 18 or older:</td>
+            <td>Number of Breaks (not including lunch):</td>
+            <td>Tide-Pool:</td>
+          </tr>
+        </thead>
+      </table>
+    </section>
+    <section>
+      <form id="WarCard">
+        <label for="name"> Employee Name </label>
+        <input id = "namebox" type="text" name="name" required>
+
+        <div id="bflyent-container">
+              <label for= "bflyEnt"class="label-body">Butterfly Entrance:
+                <input class="position" type="radio" name="BflyEnt" value="checkedOut" required>
+                <span class="label-body">Checked Out:</span>
+
+                <input class="position" type="radio" name="BflyEnt" value="learning">
+                <span class="label-body">Learning</span>
+
+                <input class="position" type="radio" name="BflyEnt" value="doesntDo">
+                <span class="label-body">Doesn't Do</span>
+        </div>
+
+        <div id="bflyext-container">
+              <label class="label-body">Butterfly Exit:
+                <input class="position" type="radio" name="BflyExt" value="checkedOut" required>
+                <span class="label-body">Checked Out:</span>
+
+                <input class="position" type="radio" name="BflyExt" value="learning">
+                <span class="label-body">Learning</span>
+
+                <input class="position" type="radio" name="BflyExt" value="doesntDo">
+                <span class="label-body">Doesn't Do</span>
+        </div>
+
+        <div id="tidepool-container">
+              <label class="label-body">Tide Pool:
+                <input class="position" type="radio" name="tidePool" value="checkedOut" required>
+                <span class="label-body">Checked Out:</span>
+
+                <input class="position" type="radio" name="tidePool" value="learning">
+                <span class="label-body">Learning</span>
+
+                <input class="position" type="radio" name="tidePool" value="doesntDo">
+                <span class="label-body">Doesn't Do</span>
+        </div>
+        <div id="over-eighteen">
+          <label class = "label-body">Over Eighteen?
+            <input class ="position" type="checkbox" name="overEighteen">
+        </div>
+        <input id = "submitbutton" type="submit">
+      </form>
+    </section>
+    <script src = "fb.js"></script>
+    <script src="model/staff.js"></script>
+  </body>
+</html>
